@@ -1,0 +1,7 @@
+<h2>Speakers</h2>
+<a
+  style="width: 100px; height: 100px; background-size: contain; background-position: center; display: inline-block; border: 1px solid #ddd; margin: 10px;"
+  *ngFor="let speaker of speakers"
+  [style.background-image]="'url(assets/' + speaker.src + ')'"
+  (click)="showBio(speaker.id)"
+></a>

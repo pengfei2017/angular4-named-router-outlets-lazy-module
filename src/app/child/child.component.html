@@ -1,0 +1,8 @@
+<p>
+  child works!
+</p>
+<a
+  [routerLink]="['layout', {outlets: {'list-outlet': ['list'],'detail-outlet': ['detail'], 'speaker-outlet': ['speaker'], 'bio-outlet': ['none']}}]">
+  layout
+</a>
+<router-outlet></router-outlet>
