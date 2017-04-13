@@ -22,8 +22,8 @@
 
 ## 在ChildRoutingModule模块中
 
-  1. 正确写法1如下 （正确的做法是layout路径必须直接指向有名字的插座路径<router-outlet>所在的宿主组件中，中间不能隔代）
-    ~~~
+  1. 正确写法1如下 （正确的做法是layout路径必须直接指向有名字的插座路径<router-outlet>所在的宿主组件中，中间不能隔代）    
+   ~~~
     const routes: Routes = [
       {
         path: '',
@@ -42,7 +42,7 @@
         ]
       },
     ];
-    ~~~
+   ~~~
 
 1. 正确写法2如下(可以在有名字的<router-outlet>所在的宿主组件的路径path: 'layout'上面声明任意数量的空路径path: ''，方便进行无组件路由分组)
     ~~~
