@@ -1,24 +1,24 @@
 # angular4-named-router-outlets-lazy-module   
 > 在angular2以上的版本中，命名的router-outlets如果在被懒加载的特性模块中，使用要注意的事项：声明路由时有name的<router-outlet>组件必须是它们的宿主组件的直接父路由，并且<router-outlet>们的宿主组件的路由必须要自己的名字，而不能是<router-outlet>们的宿主组件的某个上一代路由有名字，如下：像list-outlet插座组件所在的宿主组件是LayoutComponent，那么在声明路由时，path: 'list'路径必须时LayoutComponent所在路径path: 'layout'的直接下一级路径，中间不能隔代，另外宿主组件LayoutComponent必须有自己的路径名字path: 'layout'，不能为空路径
-    ~~~
-    {
-      path: 'layout',
-      component: LayoutComponent,
-      children: [
-        {path: 'list', component: ListComponent, outlet: 'list-outlet'},
-        {path: 'detail', component: DetailComponent, outlet: 'detail-outlet'},
-        {path: 'speaker', component: SpeakersListComponent, outlet: 'speaker-outlet'},
-        {path: ':id', component: BioComponent, outlet: 'bio-outlet'}
-      ]
-    }
-    ~~~
+  ~~~
+  {
+    path: 'layout',
+    component: LayoutComponent,
+    children: [
+      {path: 'list', component: ListComponent, outlet: 'list-outlet'},
+      {path: 'detail', component: DetailComponent, outlet: 'detail-outlet'},
+      {path: 'speaker', component: SpeakersListComponent, outlet: 'speaker-outlet'},
+      {path: ':id', component: BioComponent, outlet: 'bio-outlet'}
+    ]
+  }
+  ~~~
 > 父模块可以调子模块中的插座路径，子模块中也可以调父模块中的插座路径，不管是不是懒加载模块
-    ~~~
-    <a
-      [routerLink]="['layout', {outlets: {'list-outlet': ['list'],'detail-outlet': ['detail'], 'speaker-outlet': ['speaker'], 'bio-outlet': ['none']}}]">
-      layout
-    </a>
-    ~~~
+  ~~~
+  <a
+    [routerLink]="['layout', {outlets: {'list-outlet': ['list'],'detail-outlet': ['detail'], 'speaker-outlet': ['speaker'], 'bio-outlet': ['none']}}]">
+    layout
+  </a>
+  ~~~
 
 ## 在ChildRoutingModule模块中
 
